@@ -1,7 +1,6 @@
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            console.log(entry.target);
             entry.target.classList.add('todoShow');
         } else {
             entry.target.classList.remove('todoShow');
@@ -12,30 +11,80 @@ const observer = new IntersectionObserver((entries) => {
 const toDoElements = document.querySelectorAll('.list');
 toDoElements.forEach(el => observer.observe(el));
 
+//
+
+
+const searchIcon = document.querySelector('.searchIcon');
+const accountIcon = document.querySelector('.accountIcon');
+const menuIcon = document.querySelector('.menuIcon');
+const searchBar = document.querySelector('.searchBar')
+
+let clickedAgain = false;
+
+if (searchIcon) {
+        searchIcon.addEventListener('click', () => {
+            if (clickedAgain) return closeSearch();
+
+            searchInput();
+            clickedAgain = true;
+    });
+}
+
+function closeSearch() {
+    searchIcon.classList.remove('addBorder');
+    menuIcon.classList.remove('moveUpAnimExit');
+    accountIcon.classList.remove('moveDownAnimExit');
+    searchBar.classList.remove('showSearchBar');
+    console.log('clicked');
+    clickedAgain = false;
+}
+
+function searchInput() {
+    searchIcon.classList.add('addBorder');
+    menuIcon.classList.add('moveUpAnimExit');
+    accountIcon.classList.add('moveDownAnimExit');
+    
+    accountIcon.addEventListener('animationend', () => {
+        searchBar.classList.add('showSearchBar');
+    });
+    console.log('clicked');
+}
+
+
+
+//
 
 const usernameInput = document.querySelector('.usernameInput');
 const passwordInput = document.querySelector('.passwordInput');
 const confirmButton = document.querySelector('.confirmButton');
-const body = document.querySelector('body');
-body.style.overflow = 'hidden';
 
 let usernameFilled = false;
 let passwordFilled = false;
 let username = '';
 let password = '';
+let contentLoaded = false;
+
+window.addEventListener('DOMContentLoaded', () => {
+    contentLoaded = true;
+    console.log(`content loaded: ${contentLoaded}`)
+});
 
 document.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
     if (passwordFilled) return;
     if (usernameFilled) return;
+    console.log('Enter detected')
     userData();
-})
+});
 
-confirmButton.addEventListener('click', () => {
-    if (passwordFilled) return;
-    if (usernameFilled) return;
-    userData();
-})
+
+if (confirmButton) {
+    confirmButton.addEventListener('click', () => {
+        if (passwordFilled) return;
+        if (usernameFilled) return;
+        userData(); 
+    });
+}
 
 
 
@@ -107,9 +156,10 @@ function userData() {
     loadingScreen.textContent = `hello ${username}!`;
 
     usernameInput.addEventListener('animationend', () => {
-        loadingScreen.style.marginTop = '200px';
+        loadingScreen.style.marginTop = '';
         loadingScreen.style.display = 'flex';
         loadingIcon.style.display = 'flex';
+        loadingIcon.style.marginTop = '-100px';
 
         setInterval(() => {
             loadingScreen.classList.add('loadingAnim');
@@ -120,6 +170,11 @@ function userData() {
     loadingScreen.addEventListener('animationend', () => {
         localStorage.setItem('username', username);
         window.location.href = 'index.html';
+        console.log('welcome')
     });
     return;
 }
+
+//
+
+

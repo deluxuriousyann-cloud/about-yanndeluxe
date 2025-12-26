@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-size: 2rem;
     background-color: rgb(16, 16, 16);
@@ -8,14 +12,22 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 10px;
     padding: 10px;
+    overflow-x: hidden;
+}
+
+.usernameValue {
+    width: 100%;
+    max-width: 900px;
 }
 
 .headers {
     border-radius: 10px;
     width: auto;
-    height: 100px;
+    max-height: 100px;
+    height: 50%;
+    width: 90%;
+    max-width: 700px;
     margin-top: 50px;
     display: flex;
     justify-content: center;
@@ -25,12 +37,13 @@ body {
 }
 
 .welcomeText {
-    margin-top: -50px;
+    margin-top: -40px;
     color: rgb(88, 88, 88);
 }
 
 .content {
-    width: 100vh;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -39,13 +52,21 @@ body {
 }
 
 .list {
-    margin: 25px;
     border: 1px solid white;
     border-radius: 10px;
     padding: 20px;
     background-color: rgb(23, 23, 23);
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 300px;
     opacity: 0;
+}
+
+.imgText {
+    margin-top: 10px;
 }
 
 .todoShow {
@@ -56,10 +77,12 @@ body {
     from {
         opacity: 0;
         transform: translateY(50px);
+        filter: blur(2px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: none;
     }
 }
 
@@ -80,6 +103,13 @@ body {
     }
 }
 
+img {
+    width: 280px;
+    height: 280px;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+}
+
 .whiteSpace {
     border: 0;
     width: 100px;
@@ -93,7 +123,8 @@ body {
 .searchBox {
     border: 1px solid rgb(30, 30, 30);
     border-radius: 15px;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: 50px;
     background-color: rgb(255, 255, 255);
     top: -10px;
@@ -101,37 +132,90 @@ body {
     position: fixed;
 }
 
+.lists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    transform: translateX(-20px);
+    max-width: 500px;
+}
+
 .icon {
-    width: 50px;
-    height: 50px;
+    width: 90%;
+    height: 90%;
+    max-width: 50px;
+    max-height: 50px;
     display: inline-block;
     position: absolute;
 }
 .menuIcon {
     left: 10px;
+    cursor: pointer;
 }
 
 .accountIcon {
     right: 60px;
+    cursor: pointer;
 }
 
 .searchIcon {
     right: 10px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .icon:hover {
     cursor: pointer;
 }
 
+@media (max-width: 400px) {
+    .searchBox {
+        max-height: 30px;
+        max-width: 200px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .icon {
+        max-height: 20px;
+        max-width: 20px;
+    }
+    .accountIcon {
+        transform: translate(20px, -10px);
+    }
+    .list {
+        width: 100%;
+        max-width: 200px;
+        font-size: 10px;
+    }
+    img {
+        width: 90%;
+        max-width: 180px;
+        height: auto;
+    }
+    .welcomeText {
+        font-size: 1rem;
+    }
+    .usernameValue {
+        transform: translate(0, -30px);
+        width: 90%;
+        max-width: 200px;
+    }
+}
+
 .lineGrey {
     border: 0;
     border-radius: 20px;
-    width: 40%;
+    width: 80%;
     max-width: 300px;
     height: 5px;
     background-color: rgb(96, 96, 96);
-    position: absolute;
-    display: block;
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
 .usernameInput {
@@ -292,11 +376,14 @@ body {
 }
 
 .loadingToHome {
-    font-size: 50px;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    min-height: 50vh;
     display: none;
     opacity: 0;
 }
@@ -360,6 +447,10 @@ body {
         align-items: center;
     }
 
+    .content {
+        transform: translateX(-10px);
+    }
+
     .usernameInput[type="text"], .passwordInput[type="text"] {
         font-size: 1rem;
     }
@@ -377,15 +468,76 @@ body {
         width: 50%;
         height: 50%;
         max-width: 25px;
+        margin-right: -10px;
+        display: inline-block;
+        vertical-align: middle;
     }
     .lineGrey {
         width: 70%;
-        height: 50%;
+        height: 2px;
         max-width: 120px;
         max-height: 2px;
-        top: -100px;
-        align-items: center;
-        justify-content: center;
     }
+    .searchBar, .searchBar[type='text'], .searchBar[placeholder] {
+        width: 90%;
+        height: 90%;
+        max-height: inherit;
+        max-width: inherit;
+        font-size: smaller;
+    }
+    .addBorder {
+        width: 90%;
+        max-width: 10px;
+        height: 100%;
+        max-height: inherit;
+    }
+}
 
+.addBorder {
+    animation: addBorderAnim 600ms ease-out forwards;
+}
+
+@keyframes addBorderAnim {
+    to {
+        border: 0;
+        border-radius: inherit;
+        width: 90%;
+        background-color: rgb(145, 145, 255);
+        transform: translate(10px, 1px);
+        max-width: 50px;
+        height: inherit;
+    }
+}
+
+.searchBar {
+    height: inherit;
+    width: inherit;
+    border: 0;
+    border-radius: inherit;
+    background-color: inherit;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBar[type='text'] {
+    font-size: 1rem;
+    font-family: 'Google Sans';
+    text-align: center;
+    opacity: 0;
+}
+
+.showSearchBar {
+    animation: searchBarShow 1s ease-out forwards;
+}
+
+@keyframes searchBarShow {
+    from {
+        opacity: 0;
+        transform: scale(50%, 100%);
+    }
+    to {
+        transform: scale(100%, 100%);
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
