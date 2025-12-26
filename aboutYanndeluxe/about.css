@@ -1,0 +1,390 @@
+body {
+    font-size: 2rem;
+    background-color: rgb(16, 16, 16);
+    font-family: 'Google Sans', sans-serif;
+    color: #f5f3ca;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.headers {
+    border-radius: 10px;
+    width: auto;
+    height: 100px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.welcomeText {
+    margin-top: -50px;
+    color: rgb(88, 88, 88);
+}
+
+.content {
+    width: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list {
+    margin: 25px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(23, 23, 23);
+    text-decoration: none;
+    opacity: 0;
+}
+
+.todoShow {
+    animation: showToDo 1s ease-out forwards;
+}
+
+@keyframes showToDo {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contentAnim {
+    animation: showContent 3s ease-out forwards;
+}
+
+@keyframes showContent {
+    from {
+        transform: translate(0, 50px);
+        transform: rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+
+.whiteSpace {
+    border: 0;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox {
+    border: 1px solid rgb(30, 30, 30);
+    border-radius: 15px;
+    width: 1200px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    top: -10px;
+    display: block;
+    position: fixed;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+}
+.menuIcon {
+    left: 10px;
+}
+
+.accountIcon {
+    right: 60px;
+}
+
+.searchIcon {
+    right: 10px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.lineGrey {
+    border: 0;
+    border-radius: 20px;
+    width: 40%;
+    max-width: 300px;
+    height: 5px;
+    background-color: rgb(96, 96, 96);
+    position: absolute;
+    display: block;
+}
+
+.usernameInput {
+    border: 0.5px solid grey;
+    background-color: rgb(183, 183, 183);
+    border-radius: 20px;
+    width: 50%;
+    max-width: 500px;
+    max-width: 80%;
+    height: 50px;
+    display: block;
+    transition: all 600ms ease-out;
+    margin-bottom: 5px;
+}
+
+
+.passwordInput {
+    border: 0.5px solid grey;
+    background-color: rgb(183, 183, 183);
+    border-radius: 20px;
+    width: 50%;
+    max-width: 500px;
+    max-width: 80%;
+    height: 50px;
+    display: block;
+    transition: all 600ms ease-out;
+    margin-top: 10px;
+}
+
+.passwordInput[type="text"] {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.usernameInput[type="text"] {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.passwordInput:focus {
+    background-color: rgb(65, 65, 65);
+    color: #f5f3ca;
+    scale: 105%;
+}
+
+.usernameInput:focus {
+    background-color: rgb(65, 65, 65);
+    color: #f5f3ca;
+    scale: 105%;
+}
+
+.signupIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.sendIcon {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    display: block;
+}
+
+.confirmButton {
+    width: 40%;
+    max-width: 200px;
+    height: 50px;
+    margin: 20px;
+    background-color: rgb(168, 255, 168);
+    border: 0.2px solid rgb(68, 68, 68);
+    border-radius: 15px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    transition: all 600ms ease-out;
+}
+
+.confirmButton:hover {
+    background-color: rgb(151, 255, 151);
+    scale: 105%;
+    transform: translate(0, 5px);
+}
+
+.errorAnim {
+    animation: errorInput 600ms ease-out forwards;
+}
+
+@keyframes errorInput {
+    to {
+        border: 0.5px solid red;
+        background-color: rgb(255, 33, 33);
+        color: black;
+    }
+}
+
+.moveUpAnimExit {
+    animation: moveUpExit 1s ease-out forwards;
+}
+
+.moveLeftAnimExit {
+    animation: moveLeftExit 1s ease-out forwards;
+}
+
+.moveRightAnimExit {
+    animation: moveRightExit 1s ease-out forwards;
+}
+
+.moveDownAnimExit {
+    animation: moveDownExit 1s ease-out forwards;
+}
+
+@keyframes moveUpExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, -50px);
+        opacity: 0;
+    }
+}
+
+@keyframes moveDownExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+}
+
+@keyframes moveLeftExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-50px, 0);
+        opacity: 0;
+    }
+}
+
+
+@keyframes moveRightExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(50px, 0);
+        opacity: 0;
+    }
+}
+
+.loadingToHome {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    opacity: 0;
+}
+
+.loadingAnim {
+    animation: showLoading 2s ease-out forwards;
+}
+
+@keyframes showLoading {
+    from {
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 1px;
+    }
+}
+
+.loadingIcon {
+    width: 50px;
+    height: 50px;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-radius: 50%;
+    position: relative;
+    display: none;
+    opacity: 0;
+}
+
+.loadingIconAnim {
+    animation: rotateLoading 5s ease-out;
+}
+
+@keyframes rotateLoading {
+    from {
+        opacity: 0;
+    }
+    0%, 50% {
+        transform: rotate(360deg);
+    }
+    to {
+        opacity: 1;
+    }
+    50%, 100% {
+        transform: rotate(720deg);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+    .usernameInput, .passwordInput, .content {
+        width: 80%;
+        max-width: 180px;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .usernameInput[type="text"], .passwordInput[type="text"] {
+        font-size: 1rem;
+    }
+    
+    .confirmButton {
+        width: 70%;
+        font-size: 0.8rem;
+    }
+    .sendIcon {
+        margin: -5px;
+        width: 50%;
+        height: 50%;
+    }
+    .signupIcon{
+        width: 50%;
+        height: 50%;
+        max-width: 25px;
+    }
+    .lineGrey {
+        width: 70%;
+        height: 50%;
+        max-width: 120px;
+        max-height: 2px;
+        top: -100px;
+        align-items: center;
+        justify-content: center;
+    }
+}
