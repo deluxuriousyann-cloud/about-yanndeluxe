@@ -352,7 +352,7 @@ body {
 }
 
 @media (max-width: 400px) {
-    .usernameInput, .passwordInput, .content {
+    .usernameInput, .passwordInput, .content, .loadingToHome {
         width: 80%;
         max-width: 180px;
         font-size: 1rem;
@@ -387,4 +387,5 @@ body {
         align-items: center;
         justify-content: center;
     }
+
 }
