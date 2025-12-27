@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: center;
     align-items: center;
     text-align: center;
     padding: 10px;
@@ -61,7 +62,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: justify;
-    max-width: 300px;
+    width: 90%;
+    max-width: 400px;
     opacity: 0;
 }
 
@@ -113,7 +115,7 @@ img {
 .whiteSpace {
     border: 0;
     width: 100px;
-    height: 50px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -493,6 +495,76 @@ img {
     }
 }
 
+.box {
+    background: linear-gradient(135deg, rgb(144, 255, 144), white);
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    height: 100px;
+    max-width: inherit;
+    max-height: 100px;
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    --moveToLeftValue: 0;
+}
+
+.box1 {
+    background: linear-gradient(135deg, rgb(144, 255, 144), white);
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    height: 100px;
+    max-width: inherit;
+    max-height: 100px;
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    --moveToRightValue: 0;
+}
+
+.message1 {
+    font-size: 40px;
+}
+
+.blockImg {
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+    max-height: auto;
+    border-radius: 30px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+/**/
+
+
+.boxAnimToLeft {
+    animation: boxToLeft 1s ease-out forwards alternate;
+}
+
+@keyframes boxToLeft {
+    from {
+        transform: translate(0px, 0);
+    }
+    to {
+        transform: translate(var(--moveToLeftValue), 0);
+    }
+}
+
 .addBorder {
     animation: addBorderAnim 600ms ease-out forwards;
 }
@@ -540,4 +612,41 @@ img {
         opacity: 1;
         pointer-events: auto;
     }
+}
+
+.factBox:hover, .factBox:focus {
+    cursor: pointer;
+    background-color: black;
+    transition: all 600ms ease-out;
+}
+
+.aboutText {
+    margin: -20px;
+}
+
+.aboutTextAnim {
+    animation: aboutToLeft 1s ease-out forwards alternate;
+}
+
+@keyframes aboutToLeft {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-70px, 0);
+    }
+}
+
+#calculator[type="text"], #calculator[placeholder], #calculator {
+    width: 100%;
+    height: 100%;
+    max-height: 50px;
+    max-width: 300px;
+    padding: 20px;
+    font-size: 1rem;
+    font-family: 'Google Sans';
+    border: 0.1px solid black;
+    border-radius: 20px;
+    display: block;
+    
 }
