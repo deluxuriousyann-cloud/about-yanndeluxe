@@ -1,0 +1,768 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 2rem;
+    background-color: rgb(16, 16, 16);
+    font-family: 'Google Sans', sans-serif;
+    color: #f5f3ca;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+.usernameValue {
+    width: 100%;
+    max-width: 900px;
+}
+
+.headers {
+    border-radius: 10px;
+    width: auto;
+    max-height: 100px;
+    height: 50%;
+    width: 90%;
+    max-width: 700px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.welcomeText {
+    margin-top: -40px;
+    color: rgb(88, 88, 88);
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    width: 90%;
+    max-width: 400px;
+    opacity: 0;
+}
+
+.stars {
+    position: fixed;
+    top: 50px;
+    border-radius: 50%;
+    opacity: 50%;
+    left: 0;
+    background-color: #f5f3ca;
+    z-index: -5;
+    box-shadow: 1px 2px 1px #fff9831b;
+    animation: starsFall 30s ease-out infinite alternate;
+    overflow-x: hidden;
+}
+
+@keyframes starsFall {
+    from {
+        transform: translateY(0);
+        rotate: 0deg;
+    }
+    10% {
+        opacity: 10%;
+    }
+    30% {
+        opacity: 50%;
+    }
+
+    60% {
+        opacity: 20%;
+    }
+    80% {
+        opacity: 70%;
+    }
+    to {
+        transform: translate(-100px, 100px);
+        rotate: 40deg;
+    }
+}
+
+.moon {
+    width: 90%;
+    height: 90%;
+    max-width: 500px;
+    max-height: 500px;
+    position: fixed;
+    background-color: #9e9e9e;
+    border-radius: 50%;
+    left: -200px;
+    top: -200px;
+    z-index: -4;
+}
+
+.craters {
+    width: 90%;
+    height: 90%;
+    max-width: 100px;
+    max-height: 100px;
+    position: fixed;
+    background-color: #474747;
+    border-radius: 50%;
+    left: 0;
+    top: 30px;
+    z-index: -4;
+    box-shadow: 
+    150px 50px #47474755,
+    75px -100px #474747;
+}
+
+.imgText {
+    margin-top: 10px;
+}
+
+.todoShow {
+    animation: showToDo 1s ease-out forwards;
+}
+
+@keyframes showToDo {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: none;
+    }
+}
+
+.contentAnim {
+    animation: showContent 3s ease-out forwards;
+}
+
+@keyframes showContent {
+    from {
+        transform: translate(0, 50px);
+        transform: rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
+
+img {
+    width: 280px;
+    height: 280px;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+}
+
+.whiteSpace {
+    border: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox {
+    border: 1px solid rgb(30, 30, 30);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 1200px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    top: -10px;
+    display: block;
+    position: fixed;
+}
+
+.lists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    transform: translateX(-20px);
+    max-width: 600px;
+}
+
+.icon {
+    width: 90%;
+    height: 90%;
+    max-width: 50px;
+    max-height: 50px;
+    display: inline-block;
+    position: absolute;
+}
+.menuIcon {
+    left: 10px;
+    cursor: pointer;
+}
+
+.accountIcon {
+    right: 60px;
+    cursor: pointer;
+}
+
+.searchIcon {
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .searchBox {
+        max-height: 30px;
+        max-width: 200px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .icon {
+        max-height: 20px;
+        max-width: 20px;
+    }
+    .accountIcon {
+        transform: translate(20px, -10px);
+    }
+    .list {
+        width: 100%;
+        max-width: 200px;
+        font-size: 10px;
+    }
+    img {
+        width: 90%;
+        max-width: 180px;
+        height: auto;
+    }
+    .welcomeText {
+        font-size: 1rem;
+    }
+    .usernameValue {
+        transform: translate(0, -30px);
+        width: 90%;
+        max-width: 200px;
+    }
+}
+
+.lineGrey {
+    border: 0;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 300px;
+    height: 5px;
+    background-color: rgb(96, 96, 96);
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.usernameInput {
+    border: 0.5px solid grey;
+    background-color: rgb(183, 183, 183);
+    border-radius: 20px;
+    width: 50%;
+    max-width: 500px;
+    max-width: 80%;
+    height: 50px;
+    display: block;
+    transition: all 600ms ease-out;
+    margin-bottom: 5px;
+}
+
+
+.passwordInput {
+    border: 0.5px solid grey;
+    background-color: rgb(183, 183, 183);
+    border-radius: 20px;
+    width: 50%;
+    max-width: 500px;
+    max-width: 80%;
+    height: 50px;
+    display: block;
+    transition: all 600ms ease-out;
+    margin-top: 10px;
+}
+
+.passwordInput[type="text"] {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.usernameInput[type="text"] {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.passwordInput:focus {
+    background-color: rgb(65, 65, 65);
+    color: #f5f3ca;
+    scale: 105%;
+}
+
+.usernameInput:focus {
+    background-color: rgb(65, 65, 65);
+    color: #f5f3ca;
+    scale: 105%;
+}
+
+.signupIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.sendIcon {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    display: block;
+}
+
+.confirmButton {
+    width: 40%;
+    max-width: 200px;
+    height: 50px;
+    margin: 20px;
+    background-color: rgb(168, 255, 168);
+    border: 0.2px solid rgb(68, 68, 68);
+    border-radius: 15px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    transition: all 600ms ease-out;
+}
+
+.confirmButton:hover {
+    background-color: rgb(151, 255, 151);
+    scale: 105%;
+    transform: translate(0, 5px);
+}
+
+.errorAnim {
+    animation: errorInput 600ms ease-out forwards;
+}
+
+@keyframes errorInput {
+    to {
+        border: 0.5px solid red;
+        background-color: rgb(255, 33, 33);
+        color: black;
+    }
+}
+
+.moveUpAnimExit {
+    animation: moveUpExit 1s ease-out forwards;
+}
+
+.moveLeftAnimExit {
+    animation: moveLeftExit 1s ease-out forwards;
+}
+
+.moveRightAnimExit {
+    animation: moveRightExit 1s ease-out forwards;
+}
+
+.moveDownAnimExit {
+    animation: moveDownExit 1s ease-out forwards;
+}
+
+@keyframes moveUpExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, -50px);
+        opacity: 0;
+    }
+}
+
+@keyframes moveDownExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+}
+
+@keyframes moveLeftExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-50px, 0);
+        opacity: 0;
+    }
+}
+
+
+@keyframes moveRightExit {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(50px, 0);
+        opacity: 0;
+    }
+}
+
+.loadingToHome {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    min-height: 50vh;
+    display: none;
+    opacity: 0;
+}
+
+.loadingAnim {
+    animation: showLoading 2s ease-out forwards;
+}
+
+@keyframes showLoading {
+    from {
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 1px;
+    }
+}
+
+.loadingIcon {
+    width: 50px;
+    height: 50px;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-radius: 50%;
+    position: relative;
+    display: none;
+    opacity: 0;
+}
+
+.loadingIconAnim {
+    animation: rotateLoading 5s ease-out;
+}
+
+@keyframes rotateLoading {
+    from {
+        opacity: 0;
+    }
+    0%, 50% {
+        transform: rotate(360deg);
+    }
+    to {
+        opacity: 1;
+    }
+    50%, 100% {
+        transform: rotate(720deg);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+    .usernameInput, .passwordInput, .content, .loadingToHome {
+        width: 80%;
+        max-width: 180px;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        transform: translateX(-10px);
+    }
+
+    .usernameInput[type="text"], .passwordInput[type="text"] {
+        font-size: 1rem;
+    }
+    
+    .confirmButton {
+        width: 70%;
+        font-size: 0.8rem;
+    }
+    .sendIcon {
+        margin: -5px;
+        width: 50%;
+        height: 50%;
+    }
+    .signupIcon{
+        width: 50%;
+        height: 50%;
+        max-width: 25px;
+        margin-right: -10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .lineGrey {
+        width: 70%;
+        height: 2px;
+        max-width: 120px;
+        max-height: 2px;
+    }
+    .searchBar, .searchBar[type='text'], .searchBar[placeholder] {
+        width: 90%;
+        height: 90%;
+        max-height: inherit;
+        max-width: inherit;
+        font-size: smaller;
+    }
+    .addBorder {
+        width: 90%;
+        max-width: 10px;
+        height: 100%;
+        max-height: inherit;
+    }
+}
+
+.box {
+    background: linear-gradient(135deg, rgb(144, 255, 144), white);
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    height: 100px;
+    max-width: inherit;
+    max-height: 100px;
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    --moveToLeftValue: 0;
+}
+
+.box1 {
+    background: linear-gradient(135deg, rgb(144, 255, 144), white);
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    width: fit-content;
+    height: 100px;
+    max-width: inherit;
+    max-height: 100px;
+    border-radius: 30px;
+    max-width: fit-content;
+    max-height: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    --moveToRightValue: 0;
+}
+
+.message1 {
+    font-size: 40px;
+}
+
+.blockImg {
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+    max-height: auto;
+    border-radius: 30px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+/**/
+
+
+.boxAnimToLeft {
+    animation: boxToLeft 1s ease-out forwards alternate;
+}
+
+@keyframes boxToLeft {
+    from {
+        transform: translate(0px, 0);
+    }
+    to {
+        transform: translate(var(--moveToLeftValue), 0);
+    }
+}
+
+.addBorder {
+    animation: addBorderAnim 600ms ease-out forwards;
+}
+
+@keyframes addBorderAnim {
+    to {
+        border: 0;
+        border-radius: inherit;
+        width: 90%;
+        background-color: rgb(145, 145, 255);
+        transform: translate(10px, 1px);
+        max-width: 50px;
+        height: inherit;
+    }
+}
+
+.searchBar {
+    height: inherit;
+    width: inherit;
+    border: 0;
+    border-radius: inherit;
+    background-color: inherit;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBar[type='text'] {
+    font-size: 1rem;
+    font-family: 'Google Sans';
+    text-align: center;
+    opacity: 0;
+}
+
+.showSearchBar {
+    animation: searchBarShow 1s ease-out forwards;
+}
+
+@keyframes searchBarShow {
+    from {
+        opacity: 0;
+        transform: scale(50%, 100%);
+    }
+    to {
+        transform: scale(100%, 100%);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.factBox:hover, .factBox:focus {
+    cursor: pointer;
+    background-color: black;
+    transition: all 600ms ease-out;
+}
+
+.aboutText {
+    margin: -20px;
+}
+
+.aboutTextAnim {
+    animation: aboutToLeft 1s ease-out forwards alternate;
+}
+
+@keyframes aboutToLeft {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-70px, 0);
+    }
+}
+
+#calculator[type="text"], #calculator[placeholder], #calculator {
+    width: 100%;
+    height: 100%;
+    max-height: 50px;
+    max-width: 300px;
+    padding: 20px;
+    font-size: 1rem;
+    font-family: 'Google Sans';
+    border: 0.1px solid black;
+    border-radius: 20px;
+    display: block;
+    
+}
+
+@media (max-width: 400px) and (max-width: 600px) {
+    .moon {
+        width: 400px;
+        height: 400px;
+    }
+    .craters {
+        width: 50px;
+        height: 50px;
+        left: -60px;
+    }
+    .searchBox {
+        width: 300px;
+        height: auto;
+    }
+    .usernameValue {
+        font-size: 1rem;
+    }
+    .welcomeText {
+        font-size: 0.6rem;
+    }
+    .list {
+        width: 300px;
+        font-size: 0.8rem;
+        height: auto;
+    }
+    .blockImg {
+        border-radius: 10px;
+        padding: -5px;
+        width: 180px;
+        height: auto;
+    }
+    span.box, span.box1 {
+        font-size: 0.8rem;
+        max-width: 100px;
+        padding: 10px;
+        max-height: 50px;
+    }
+    .whiteSpace {
+        height: 50px;
+    }
+    .message1 {
+        letter-spacing: -30px;
+        font-size: 1.5rem;
+    }
+    #calculator, #calculator[type="text"], #calculator[placeholder] {
+        height: 25px;
+        padding: -10px;
+        font-size: 0.5rem;
+    }
+}
