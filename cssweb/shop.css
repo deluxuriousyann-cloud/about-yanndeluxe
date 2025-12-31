@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #f5f3ca;
+    background: linear-gradient(135deg, darkslategrey, rgb(29, 48, 48));
+    font-family: 'Google Sans', sans-serif;
+}
+
+.shopName {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.shopIcon {
+    margin-right: 5px;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loginText {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.loginIcon {
+    width: 2rem;
+    height: auto;
+    display: flex;
+}
+
+.whiteSpace {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.whiteLine {
+    margin-top: 20px;
+    width: 90%;
+    height: 3px;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 10px solid rgb(0, 0, 0);
+    border-radius: 10px 0 10px 0;
+    background-color: #f5f3ca;
+}
+
+.loginInfos {
+    display: flex;
+    flex-direction: column;
+}
+
+.username, .username[type="text"], .username[placeholder], .password, .password[type="text"], .password[placeholder] {
+    height: 90%;
+    width: 90%;
+    max-height: 50px;
+    max-width: 250px;
+    font-family: 'Google Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 20px 0 20px 0;
+}
+
+.password {
+    opacity: 0;
+}
+
+.showPassword {
+    animation: showPass 1s ease-out forwards;
+}
+
+@keyframes showPass {
+    from {
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.loginButtonIcon {
+    width: 1rem;
+    height: auto;
+    display: flex;
+    margin-right: 20px;
+}
+
+.confirmLogin {
+    background: radial-gradient(rgb(50, 85, 85), rgb(31, 53, 53));
+    width: 150px;
+    color: #f5f3ca;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px;
+    border-right: 2px solid rgb(21, 21, 21);
+    box-shadow: 2px 5px 10px rgb(5, 5, 5);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+}
